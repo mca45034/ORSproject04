@@ -209,7 +209,7 @@
 				<tr>
 					<th align="left">Mobile No <span style="color: red">*</span> :
 					</th>
-					<td><input type="number" style="width: 212px" name="mobileNo"
+					<td><input type="text" style="width: 212px" name="mobileNo"
 						maxlength="10" placeholder="Enter Mobile No" size="25"
 						value="<%=DataUtility.getStringData(bean.getMobileNo())%>"></td>
 					<td style="position: fixed"><font color="red"> <%=ServletUtility.getErrorMessage("mobileNo", request)%></font></td>
