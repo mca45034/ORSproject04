@@ -14,7 +14,7 @@ import java.util.Date;
 public class DataUtility {
 
 	/**
-	 * Application Date Format
+	 * Application Date Format          
 	 */
 	public static final String APP_DATE_FORMAT = "MM/dd/yyyy";
 	//dd/mm/yyyy
@@ -158,6 +158,7 @@ public class DataUtility {
 		try {
 			timeStamp = new Timestamp(new Date().getTime());
 		} catch (Exception e) {
+			
 		}
 		return timeStamp;
 

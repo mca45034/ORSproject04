@@ -1,4 +1,4 @@
- package com.rays.pro4.Bean;
+package com.rays.pro4.Bean;
 
 /**
  * Role JavaBean encapsulates Role attributes.

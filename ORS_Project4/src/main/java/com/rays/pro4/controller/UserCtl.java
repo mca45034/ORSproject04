@@ -1,4 +1,4 @@
- package com.rays.pro4.controller;
+package com.rays.pro4.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -212,6 +212,7 @@ public class UserCtl extends BaseCtl {
 			UserBean bean;
 			try {
 				bean = model.findByPK(id);
+				System.out.println("Ankit11111111111");
 				System.out.println(bean);
 				ServletUtility.setBean(bean, request);
 			} catch (ApplicationException e) {
@@ -241,7 +242,7 @@ public class UserCtl extends BaseCtl {
 		String op = DataUtility.getString(request.getParameter("operation"));
 		long id = DataUtility.getLong(request.getParameter("id"));
 
-		System.out.println(">>>><<<<>><<><<><>**********" + id + op);
+		System.out.println(">>>><<<<>><<><<><<><>**********" + id + op);
 
 		UserModel model = new UserModel();
 		if (OP_SAVE.equalsIgnoreCase(op) || OP_UPDATE.equalsIgnoreCase(op)) {
@@ -250,7 +251,7 @@ public class UserCtl extends BaseCtl {
 
 			try {
 				if (id > 0) {
- 
+
 					// System.out.println("hi i am in dopost update");
 					model.update(bean);
 					ServletUtility.setBean(bean, request);

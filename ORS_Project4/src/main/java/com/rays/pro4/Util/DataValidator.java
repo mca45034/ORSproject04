@@ -1,4 +1,3 @@
-
 package com.rays.pro4.Util;
 
 import java.util.Date;
@@ -196,8 +195,8 @@ public class DataValidator {
 	    			if (isNotNull(val) && val.matches(mobreg)) {
 						
 							return true;
-	    				}else
-	    				{	
+	    				}else{
+	    					
 	    					return false;
 						}	
 	    		}

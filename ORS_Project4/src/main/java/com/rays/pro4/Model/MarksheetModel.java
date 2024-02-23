@@ -21,8 +21,6 @@ import com.rays.pro4.Util.JDBCDataSource;
  * @author Rahul Kirar
  *
  */
-
-
 public class MarksheetModel {
 
 	Logger log = Logger.getLogger(MarksheetModel.class);
@@ -33,7 +31,7 @@ public class MarksheetModel {
 		int pk = 0;
 		try {
 			conn = JDBCDataSource.getConnection();
-			System.out.println("Connection Succesfully Established");
+			System.out.println("Connection Succesfully Establidh");
 
 			PreparedStatement pstmt = conn.prepareStatement("select max(ID) from ST_MARKSHEET");
 
@@ -52,10 +50,7 @@ public class MarksheetModel {
 		log.debug("Model nextPk End");
 		return pk + 1;
 	}
-	/**
-	 * insert the data in the database
-	 *
-	 */
+
 	public long add(MarksheetBean bean) throws ApplicationException, DuplicateRecordException {
 
 		StudentModel sModel = new StudentModel();
@@ -108,12 +103,8 @@ public class MarksheetModel {
 		log.debug("Model add End");
 		return pk;
 	}
-	/**
-	 * Delete record in database
-	 *
-	 */
-	
- public void delete(MarksheetBean bean) throws ApplicationException {
+
+	public void delete(MarksheetBean bean) throws ApplicationException {
 		log.debug("Model delete Started");
 
 		Connection conn = null;
@@ -301,10 +292,7 @@ public class MarksheetModel {
 			if (bean.getMaths() != null && bean.getMaths() > 0) {
 				sql.append(" AND maths = '" + bean.getMaths());
 			}
-			if (bean.getTotal() > 0) {
-				sql.append(" AND (physics + chemistry + maths)= " + bean.getTotal());
-			}
-			
+
 		}
 
 		// if page size is greater than zero then apply pagination

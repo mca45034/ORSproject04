@@ -15,16 +15,9 @@
 	href="<%=ORSView.APP_CONTEXT%>/img/logo.png" sizes="16x16" />
 </head>
 <body>
-<!-- <style >
-a{text-decoration: none;}
-
-
-</style> -->
 
 	<br>
-	<br><br>
 	<br>
-<br>
 	<%
 		UserBean userBean = (UserBean) session.getAttribute("user");
 
@@ -34,10 +27,10 @@ a{text-decoration: none;}
 			ServletUtility.forward(ORSView.WELCOME_VIEW, request, response);
 
 		}
-	%> 
+	%>
 	<!-- <marquee behavior="alternate" scrollamount="300" loop="1"> -->
 	<div align="center">
-		<img src="img/customLogo.jpg" align="middle" width="318" height="127"
+		<img src="img/customLogo.jpg" align="middle" width="315" height="127"
 			border="0">
 	</div>
 	<!-- </marquee> -->
@@ -46,12 +39,9 @@ a{text-decoration: none;}
 	<br>
 
 	<h1 align="center">
-	
 		<font size="10px" color="red"> <a
-			href="<%=ORSView.WELCOME_CTL %>" >Online Result System</a></font>
+			href="<%=ORSView.WELCOME_CTL%>">Online Result System</a></font>
 			
-	<!-- style="text-decoration:none" -->
-	 
-			</h1>
+	</h1>
 </body>
 </html>

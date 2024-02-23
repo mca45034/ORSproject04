@@ -1,4 +1,5 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+
 <%@page import="com.rays.pro4.Bean.UserBean"%>
 <%@page import="com.rays.pro4.Bean.RoleBean"%>
 <%@ page import ="com.rays.pro4.controller.LoginCtl" %>
@@ -7,15 +8,15 @@
     pageEncoding="ISO-8859-1"%>
 <html>
 
-				
-<body >
+
+<body > 
 	<%
     UserBean userBean = (UserBean)session.getAttribute("user");
     boolean userLoggedIn = userBean != null;
     String welcomeMsg = "Hi, ";
     if (userLoggedIn) {
         String role = (String)session.getAttribute("role");
-        welcomeMsg += userBean.getFirstName() + " (" + role + ")";
+        welcomeMsg += userBean.getFirstName() +" (" + role + ")";
     } else {
         welcomeMsg += "Guest";
     }
@@ -30,14 +31,14 @@
             	<%
             		if (userLoggedIn) {
       		 	 %> 
-       <a href=" <%=ORSView.LOGIN_CTL%>?operation=<%=LoginCtl.OP_LOG_OUT%>">Logout</b></a> 
+       <a href=" <%=ORSView.LOGIN_CTL%>?operation=<%=LoginCtl.OP_LOG_OUT%>">Logout</b></a>
 
             <%
                 } else {
             %> 
             <a href="<%=ORSView.LOGIN_CTL%>">Login</b></a> 
             <%
-  			   } 
+  			   }
 			 %>
  		</td>
         <td rowspan="2" >
@@ -65,12 +66,14 @@
          <a href="<%=ORSView.CHANGE_PASSWORD_CTL%>">Change Password</b></a> |
        	 <a href="<%=ORSView.GET_MARKSHEET_CTL%>">Get Marksheet</b></a> |              
        	 <a href="<%=ORSView.MARKSHEET_MERIT_LIST_CTL%>">Marksheet MeritList</b></a> |
-        
+         <a href="<%=ORSView.BANK_CTL%>">BANK</b></a> | 
+        <a href="<%=ORSView.BANK_LIST_CTL%>">BANK_LIST</a>  |
+         
         <%
             if (userBean.getRoleId() == RoleBean.ADMIN) {
         %> 
        
-        <a href="<%=ORSView.MARKSHEET_CTL%>">Add Marksheet</b></a> |     
+        <a href="<%=ORSView.MARKSHEET_CTL%>">Add Marksheet</b></a> |       
         <a href="<%=ORSView.MARKSHEET_LIST_CTL%>">Marksheet List</b></a> |
         <a href="<%=ORSView.USER_CTL%>">Add User</b></a> | 
         <a href="<%=ORSView.USER_LIST_CTL%>">User List</b></a> |         

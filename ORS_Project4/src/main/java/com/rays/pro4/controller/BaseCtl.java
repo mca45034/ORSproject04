@@ -3,8 +3,6 @@
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +17,7 @@ import com.rays.pro4.Util.ServletUtility;
  * Base controller class of project. It contain (1) Generic operations (2)
  * Generic constants (3) Generic work flow
  *
- * @author Rahul Kirar
+ * @author  Rahul Kirar
  *
  */
 
@@ -66,7 +64,6 @@ public abstract class BaseCtl extends HttpServlet {
 	 * @param request
 	 */
 	protected void preload(HttpServletRequest request) {
-
 	}
 
 	/**
@@ -76,7 +73,6 @@ public abstract class BaseCtl extends HttpServlet {
 	 * @return
 	 */
 	protected BaseBean populateBean(HttpServletRequest request) {
-
 		return null;
 	}
 
@@ -126,45 +122,35 @@ public abstract class BaseCtl extends HttpServlet {
 	}
 
 	@Override
-	protected void service(HttpServletRequest request, HttpServletResponse response) //service method is lifecycle he httpservlet ki
-			throws ServletException, IOException {  //serice method every user request pr call hoti he
-		
-		System.out.println("Bctl ki Service Method ");
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		System.out.println("Bctl service");
 
 		// Load the preloaded data required to display at HTML form
-		
-		preload(request);   //ye userlist ke time chlegi 
-		// Populates bean object from request parameters
+		preload(request); 
 
-		String op = DataUtility.getString(request.getParameter("operation"));
-		System.out.println("Bctl Mai Operation Get Kiya = " +" "+ op);
-		// Check if operation is not DELETE, VIEW, CANCEL, RESET and NULL then
+		String op = DataUtility.getString(request.getParameter("operation")); 
+		System.out.println("Bctl servi op" + op);
+		// Check if operation is not DELETE, VIEW, CANCEL, and NULL then
 		// perform input data validation
 
 		if (DataValidator.isNotNull(op) && !OP_CANCEL.equalsIgnoreCase(op) && !OP_VIEW.equalsIgnoreCase(op)
 				&& !OP_DELETE.equalsIgnoreCase(op) && !OP_RESET.equalsIgnoreCase(op)) {
-			System.out.println("Bctl Me Condition Check Kri");
+			System.out.println("Bctl 5 operation");
 			// Check validation, If fail then send back to page with error
 			// messages
-			if (!validate(request)) { // jab bhi yha method call hogi to iski child class chalegi kyu yha isko hmne extend kr rkha hai
-				
-				System.out.println("Bctl Me validation Perform Hua ");
 
-			BaseBean bean = (BaseBean) populateBean(request);
-
-				// wapis se inserted data dikhe jo phle in put kiya tha
-			
-
+			if (!validate(request)) {
+				System.out.println("Bctl validate ");
+				BaseBean bean = (BaseBean) populateBean(request);
+				//wapis se inserted data dikhe jo phle in put kiya tha 
 				ServletUtility.setBean(bean, request);
 				ServletUtility.forward(getView(), request, response);
-				System.out.println("basectl me null mila");
-
 				return;
 			}
 		}
-		System.out.println("Bctl Ki  Super Service ");
+		System.out.println("B ctl Super servi");
 		super.service(request, response);
-
 	}
 
 	/**
@@ -173,5 +159,7 @@ public abstract class BaseCtl extends HttpServlet {
 	 * @return
 	 */
 	protected abstract String getView();
+	
+	
 
 }

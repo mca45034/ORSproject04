@@ -16,11 +16,11 @@ import com.rays.pro4.Exception.ApplicationException;
  * @author Rahul Kirar
  *
  */
-public final class JDBCDataSource {
+public class JDBCDataSource {
 
 	 /**
      * JDBC Database connection pool ( DCP )
-     */
+     *///
 	
 	
     private static JDBCDataSource datasource;
@@ -49,7 +49,8 @@ public final class JDBCDataSource {
                 e.printStackTrace();
             }
             
-                
+            
+            
             datasource.cpds.setJdbcUrl(rb.getString("url"));
             datasource.cpds.setUser(rb.getString("username"));
             datasource.cpds.setPassword(rb.getString("password"));
